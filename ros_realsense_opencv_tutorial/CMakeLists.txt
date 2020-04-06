@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(opencv_tutorial)
+project(ros_realsense_opencv_tutorial)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
  add_compile_options(-std=c++11)
@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(OpenCV REQUIRED)
+find_package(realsense2 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -105,7 +106,7 @@ find_package(OpenCV REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES opencv_tutorial
+#  LIBRARIES ros_realsense_opencv_tutorial
 #  CATKIN_DEPENDS cv_bridge roscpp
 #  DEPENDS system_lib
 )
@@ -117,18 +118,18 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+ include
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
+  ${realsense_INCLUDE_DIR}
 )
 
-add_executable(basic_opencv src/basic_opencv.cpp)
-target_link_libraries(basic_opencv ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-
+add_executable(ros_realsense_opencv_tutorial src/ros_realsense_opencv_tutorial.cpp)
+target_link_libraries(ros_realsense_opencv_tutorial ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${realsense2_LIBRARY})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/opencv_tutorial.cpp
+#   src/${PROJECT_NAME}/ros_realsense_opencv_tutorial.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -139,7 +140,7 @@ target_link_libraries(basic_opencv ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/opencv_tutorial_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/ros_realsense_opencv_tutorial_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -203,7 +204,7 @@ target_link_libraries(basic_opencv ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_opencv_tutorial.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ros_realsense_opencv_tutorial.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
