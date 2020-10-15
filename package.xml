@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ros_realsense_opencv_tutorial</name>
+  <name>pigeon_robot_eye</name>
   <version>0.1.0</version>
-  <description>The ros_realsense_opencv_tutorial package</description>
+  <description>The pigeon_robot_eye package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

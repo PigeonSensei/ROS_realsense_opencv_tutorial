@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ros_realsense_opencv_tutorial)
+project(pigeon_robot_eye)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
  add_compile_options(-std=c++11)
@@ -124,8 +124,11 @@ include_directories(
   ${realsense_INCLUDE_DIR}
 )
 
-add_executable(ros_realsense_opencv_tutorial src/ros_realsense_opencv_tutorial.cpp)
-target_link_libraries(ros_realsense_opencv_tutorial ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${realsense2_LIBRARY})
+add_executable(pigeon_robot_eye_node src/pigeon_robot_eye.cpp)
+target_link_libraries(pigeon_robot_eye_node ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${realsense2_LIBRARY})
+
+#add_executable(ros_realsense_opencv_tutorial src/ros_realsense_opencv_tutorial.cpp)
+#target_link_libraries(ros_realsense_opencv_tutorial ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${realsense2_LIBRARY})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
