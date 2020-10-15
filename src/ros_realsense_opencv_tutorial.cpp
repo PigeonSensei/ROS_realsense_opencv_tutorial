@@ -6,23 +6,17 @@
 using namespace cv;
 using namespace std;
 
-void test()
-{
-  cv::Mat test(640,480,CV_8UC3);
-  imshow("aaa", test);
-}
-
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "ros_realsense_opencv_tutorial");
   ros::NodeHandle nh;
 
-//  cout << "OpenCV version : " << CV_VERSION << endl;
-//  cout << "Major version : "  << CV_MAJOR_VERSION << endl;
+  cout << "OpenCV version : " << CV_VERSION << endl;
+  cout << "Major version : "  << CV_MAJOR_VERSION << endl;
 
-  rs2::pipeline pipe; //
-  rs2::config cfg; //
-  rs2::frameset frames; //
+  rs2::pipeline pipe;
+  rs2::config cfg;
+  rs2::frameset frames;
   rs2::frame color_frame;
 
 
@@ -45,7 +39,6 @@ int main(int argc, char **argv)
     Mat color(Size(640,480), CV_8UC3, (void*)color_frame.get_data(), Mat::AUTO_STEP);
 
     imshow("Display Image", color);
-    test();
 
     if(waitKey(10)==27) break;
     loop_rate.sleep();
